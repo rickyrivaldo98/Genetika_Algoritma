@@ -24,7 +24,7 @@
             <h1>Tambah Data</h1>
             <div class="row">
                 <div class="col s12">
-                    <a class="waves-effect red lighten-2 waves-light btn"><i class="material-icons left">chevron_left</i>Back</a>
+                    <a class="waves-effect red lighten-2 waves-light btn" onclick="history.go(-1);"><i class="material-icons left">chevron_left</i>Back</a>
                     <br><br>
                     <div class="card-panel white">
                         <div class="row">
