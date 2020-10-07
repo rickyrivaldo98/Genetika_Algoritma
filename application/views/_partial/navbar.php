@@ -1,7 +1,7 @@
 <nav>
     <div class="nav-wrapper">
         <div class="col s12">
-            <a href="#" class="brand-logo " style="padding-left: 30px;">Tugas Besar Algoritma Evolusioner</a>
+            <a href="#" class="brand-logo" style="padding-left: 30px;">Tugas Besar Algoritma Evolusioner</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="<?php echo base_url() . 'Auth/logout' ?>">Logout</a></li>
             </ul>

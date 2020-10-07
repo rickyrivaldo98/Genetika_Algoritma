@@ -5,21 +5,18 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link type="text/css" rel="stylesheet" href="<?php echo base_url() . 'assets/css/dashboard.css' ?>" />
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/module/datatable/datatables.min.css' ?>">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url() . 'assets/css/dashboard.css' ?>" />
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
-        #map {
 
-            width: 100%;
-            height: 800px;
-        }
     </style>
 
 </head>
@@ -35,6 +32,8 @@
             <h6><?php echo $this->session->flashdata('error')  ?></h6>
             <div class="row">
                 <div class="col s12">
+                    <a class="waves-effect red lighten-2 waves-light btn" onclick="history.go(-1);"><i class="material-icons left">chevron_left</i>Back</a>
+                    <br><br>
 
                     <!-- Map -->
                     <div class="row">
@@ -42,18 +41,41 @@
                         </div>
                     </div>
 
-                    <!-- Form Parameter -->
-                    <div class="row">
-                        <form id="parameter" name="parameter" action="">
-                            for untuk mutation rate, crossover rate, population size, max generation
-                        </form>
-                    </div>
+                    <div class="row proses">
+                        <!-- Form Parameter -->
+                        <div class="col s6">
+                            <form class="col s12" action="<?php echo site_url('Page/save'); ?>" method="post" enctype="multipart/form-data">
+                                <div class="row test">
+                                    <h6> Form For mutation rate, crossover rate, population size, max generation</h6>
+                                    <br>
+                                    <input type="text" name="id" hidden>
+                                    <div class="input-field">
+                                        <input placeholder="Silahkan isi Mutation Rate disini" name="mr" id="mr" type="text" class="validate">
+                                        <label for="mr">Mutation Rate</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <input placeholder="Silahkan isi Crossover Rate disini" name="cr" id="cr" type="text" class="validate">
+                                        <label for="cr">Crossover Rate</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <input placeholder="Silahkan isi Population Size disini" name="ps" id="ps" type="text" class="validate">
+                                        <label for="mr">Population Size</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <input placeholder="Silahkan isi Max Generation disini" name="mg" id="mg" type="text" class="validate">
+                                        <label for="cr">Max Generation</label>
+                                    </div>
 
-
-
-                    <!-- Log GA -->
-                    <div class="row">
-                        <textarea name="log" id="log" style="resize:none;height: 300px;"></textarea>
+                                </div>
+                                <button class="waves-effect blue lighten-2 waves-light btn right"><i class="material-icons left">check</i>Submit</button>
+                            </form>
+                        </div>
+                        <!-- Log GA -->
+                        <div class="col s6">
+                            <h6>Log GA</h6>
+                            <br><br>
+                            <textarea name="log" id="log" style="resize:none;height: 300px;"></textarea>
+                        </div>
                     </div>
 
                 </div>

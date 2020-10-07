@@ -14,6 +14,32 @@ footer {
 	padding-left: 300px;
 }
 
+main #map {
+	width: 100%;
+	height: 800px;
+}
+
+@media only screen and (max-width: 600px) {
+	header .brand-logo {
+		font-size: 15px;
+		/* padding: 0 !important; */
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+
+	main .container {
+		text-align: center;
+	}
+
+	main #map {
+		width: 100%;
+		height: 300px;
+	}
+
+	input::placeholder {
+		font-size: 10px;
+	}
+}
 @media only screen and (max-width: 992px) {
 	header,
 	main,
