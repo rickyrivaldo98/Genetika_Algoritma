@@ -52,7 +52,7 @@
                                             <td><?php echo $i->nama; ?></td>
                                             <td>
                                                 <a class="waves-effect yellow lighten-2 waves-light btn-small black-text" href="<?php echo base_url() . "Page/editinput/" . $i->id ?>">Edit</a>
-                                                <a class="waves-effect green lighten-2 waves-light btn-small" href="#">Detail</a>
+                                                <a class="waves-effect green lighten-2 waves-light btn-small" href="<?php echo base_url() . "Proses/geneAlgo/" . $i->id ?>">Detail</a>
                                                 <a class="waves-effect red lighten-2 waves-light btn-small" href="<?php echo base_url() . "Page/delete/" . $i->id ?>">Delete</a>
                                             </td>
                                         </tr>
