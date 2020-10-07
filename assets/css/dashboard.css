@@ -19,6 +19,10 @@ main #map {
 	height: 800px;
 }
 
+.proses h6 {
+	text-align: center;
+}
+
 @media only screen and (max-width: 600px) {
 	header .brand-logo {
 		font-size: 15px;
@@ -36,8 +40,19 @@ main #map {
 		height: 300px;
 	}
 
+	.select-wrapper {
+		font-size: 10px;
+	}
+	.select-wrapper input.select-dropdown {
+		font-size: 9px !important;
+	}
+
 	input::placeholder {
 		font-size: 10px;
+	}
+
+	.judul {
+		font-size: 12px;
 	}
 }
 @media only screen and (max-width: 992px) {

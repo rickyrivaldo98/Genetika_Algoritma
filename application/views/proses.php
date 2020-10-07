@@ -46,24 +46,62 @@
                         <div class="col s6">
                             <form class="col s12" action="<?php echo site_url('Page/save'); ?>" method="post" enctype="multipart/form-data">
                                 <div class="row test">
-                                    <h6> Form For mutation rate, crossover rate, population size, max generation</h6>
+                                    <h6 class="judul"> Form For mutation rate, crossover rate, population size, max generation</h6>
                                     <br>
                                     <input type="text" name="id" hidden>
+
                                     <div class="input-field">
-                                        <input placeholder="Silahkan isi Mutation Rate disini" name="mr" id="mr" type="text" class="validate">
+                                        <select name="mr">
+                                            <option value="" disabled selected>Silahkan isi Mutation Rate disini</option>
+                                            <option value="1">0.1</option>
+                                            <option value="2">0.2</option>
+                                            <option value="3">0.3</option>
+                                            <option value="4">0.4</option>
+                                            <option value="5">0.5</option>
+                                            <option value="6">0.6</option>
+                                            <option value="7">0.7</option>
+                                            <option value="8">0.8</option>
+                                            <option value="9">0.9</option>
+                                        </select>
                                         <label for="mr">Mutation Rate</label>
                                     </div>
+
                                     <div class="input-field">
-                                        <input placeholder="Silahkan isi Crossover Rate disini" name="cr" id="cr" type="text" class="validate">
+                                        <select name="cr">
+                                            <option value="" disabled selected>Silahkan isi Crossover Rate disini</option>
+                                            <option value="1">0.1</option>
+                                            <option value="2">0.2</option>
+                                            <option value="3">0.3</option>
+                                            <option value="4">0.4</option>
+                                            <option value="5">0.5</option>
+                                            <option value="6">0.6</option>
+                                            <option value="7">0.7</option>
+                                            <option value="8">0.8</option>
+                                            <option value="9">0.9</option>
+                                        </select>
                                         <label for="cr">Crossover Rate</label>
                                     </div>
+
                                     <div class="input-field">
-                                        <input placeholder="Silahkan isi Population Size disini" name="ps" id="ps" type="text" class="validate">
-                                        <label for="mr">Population Size</label>
+                                        <select name="ps">
+                                            <option value="" disabled selected>Silahkan isi Population Size disini</option>
+                                            <option value="1">5</option>
+                                            <option value="2">10</option>
+                                            <option value="3">15</option>
+                                            <option value="4">20</option>
+                                            <option value="5">25</option>
+                                        </select>
+                                        <label for="ps">Population Size</label>
                                     </div>
+
                                     <div class="input-field">
-                                        <input placeholder="Silahkan isi Max Generation disini" name="mg" id="mg" type="text" class="validate">
-                                        <label for="cr">Max Generation</label>
+                                        <select name="mg">
+                                            <option value="" disabled selected>Silahkan isi Max Generation disini</option>
+                                            <option value="1">5</option>
+                                            <option value="2">10</option>
+                                            <option value="3">15</option>
+                                        </select>
+                                        <label for="mg">Max Generation</label>
                                     </div>
 
                                 </div>
@@ -98,6 +136,17 @@
         style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
         center: [110.42142, -7.0556], // starting position [lng, lat]
         zoom: 15 // starting zoom
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, options);
+    });
+
+    // Or with jQuery
+
+    $(document).ready(function() {
+        $('select').formSelect();
     });
 </script>
 
