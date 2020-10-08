@@ -37,11 +37,11 @@
                                     </div>
                                     <div class="file-field input-field col s12">
                                         <div class="btn">
-                                            <span>Upload CSV</span>
+                                            <span>Upload JSON</span>
                                             <input type="file" name="CSV">
                                         </div>
                                         <div class="file-path-wrapper">
-                                            <input placeholder="Silahkan upload CSV disini" class="file-path validate" type="text">
+                                            <input placeholder="Silahkan upload JSON disini" class="file-path validate" type="text">
                                         </div>
                                     </div>
                                 </div>
