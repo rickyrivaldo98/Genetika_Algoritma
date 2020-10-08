@@ -61,8 +61,7 @@ function preload() {
 	// 	center: [110.42142, -7.0556], // starting position [lng, lat]
 	// 	zoom: 14, // starting zoom
 	// });
-	map = document.getElementById("map");
-	map = loadImage(
+	mapImage = loadImage(
 		"https://api.mapbox.com/styles/v1/mapbox/light-v9/static/" +
 			clon +
 			"," +
@@ -123,7 +122,7 @@ function setup() {
 function draw() {
 	translate(width * 0.5, height * 0.5);
 	imageMode(CENTER);
-	image(map, 0, 0);
+	image(mapImage, 0, 0);
 	fill(255, 0, 0);
 	noStroke();
 
