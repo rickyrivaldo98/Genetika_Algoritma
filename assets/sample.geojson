@@ -1,1 +1,68 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"name":"Sumurboto"},"id":1,"geometry":{"type":"Point","coordinates":[110.42859435081482,-7.0526506445014325]}},{"type":"Feature","properties":{"name":"Ngesrep Barat"},"id":2,"geometry":{"type":"Point","coordinates":[110.41942119598389,-7.048210549445849]}},{"type":"Feature","properties":{"name":"Tirto Agung"},"id":3,"geometry":{"type":"Point","coordinates":[110.42613744735718,-7.06425644723674]}},{"type":"Feature","properties":{"name":"Durian Raya"},"id":4,"geometry":{"type":"Point","coordinates":[110.41661024093628,-7.061264520438073]}},{"type":"Feature","properties":{"name":"Tanjung Sari"},"id":5,"geometry":{"type":"Point","coordinates":[110.42135238647461,-7.0555787414505655]}},{"type":"Feature","properties":{"name":"Klentengsari"},"id":6,"geometry":{"type":"Point","coordinates":[110.42279541492462,-7.059906967197802]}},{"type":"Feature","properties":{"name":"Sukun"},"id":7,"geometry":{"type":"Point","coordinates":[110.41800498962402,-7.0660558529633475]}}]}
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"properties": { "name": "Sumurboto" },
+			"id": 1,
+			"geometry": {
+				"type": "Point",
+				"coordinates": [110.42859435081482, -7.0526506445014325]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "name": "Ngesrep Barat" },
+			"id": 2,
+			"geometry": {
+				"type": "Point",
+				"coordinates": [110.41942119598389, -7.048210549445849]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "name": "Tirto Agung" },
+			"id": 3,
+			"geometry": {
+				"type": "Point",
+				"coordinates": [110.42613744735718, -7.06425644723674]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "name": "Durian Raya" },
+			"id": 4,
+			"geometry": {
+				"type": "Point",
+				"coordinates": [110.41661024093628, -7.061264520438073]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "name": "Tanjung Sari" },
+			"id": 5,
+			"geometry": {
+				"type": "Point",
+				"coordinates": [110.42135238647461, -7.0555787414505655]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "name": "Klentengsari" },
+			"id": 6,
+			"geometry": {
+				"type": "Point",
+				"coordinates": [110.42279541492462, -7.059906967197802]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "name": "Sukun" },
+			"id": 7,
+			"geometry": {
+				"type": "Point",
+				"coordinates": [110.41800498962402, -7.0660558529633475]
+			}
+		}
+	]
+}

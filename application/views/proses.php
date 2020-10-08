@@ -21,6 +21,15 @@
     <!-- expect js -->
     <!-- <script src="<?php echo base_url() . 'assets/expect.js/test/expect.js' ?>"></script> -->
 
+    <!-- GA library -->
+    <script language="javascript" type="text/javascript" src="<?php echo base_url() . 'assets/js/city.js' ?>"></script>
+    <script language="javascript" type="text/javascript" src="<?php echo base_url() . 'assets/js/randomStrategy.js' ?>"></script>
+    <script language="javascript" type="text/javascript" src="<?php echo base_url() . 'assets/js/route.js' ?>"></script>
+    <script language="javascript" type="text/javascript" src="<?php echo base_url() . 'assets/js/sketch.js' ?>"></script>
+
+    <!-- P5 Library -->
+    <script language="javascript" type="text/javascript" src="<?php echo base_url() . 'assets/p5/p5.js' ?>"></script>
+    <script language="javascript" type="text/javascript" src="<?php echo base_url() . 'assets/p5/p5.dom.js' ?>"></script>
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,9 +47,6 @@
 
     <main>
         <div class="container">
-            <?php
-            print_r($csv . ' ' . $url);
-            ?>
             <h1>Algoritma Genetika</h1>
             <h6><?php echo $this->session->flashdata('error')  ?></h6>
             <div class="row">
@@ -61,6 +67,8 @@
                                 <div class="row test">
                                     <h6 class="judul"> Form For mutation rate, crossover rate, population size, max generation</h6>
                                     <br>
+                                    <input type="text" id="name" name="name" value="<?php echo $csv; ?>">
+                                    <input type="text" id="url" name="url" value="<?php echo $url; ?>">
                                     <input type="text" name="id" hidden>
 
                                     <div class="input-field">
@@ -143,13 +151,13 @@
 </body>
 
 <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYW5nZ2FkaGFybWE2MCIsImEiOiJja2Z3aWs1cGswY2p2MnFub3k3anZjaHRvIn0.1rstxyC5mH5Qfrpv92UAtg';
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/anggadharma60/ckg06z7mt1x1x19of5d6mwu5i', // stylesheet location
-        center: [110.42142, -7.0556], // starting position [lng, lat]
-        zoom: 14 // starting zoom
-    });
+    // mapboxgl.accessToken = 'pk.eyJ1IjoiYW5nZ2FkaGFybWE2MCIsImEiOiJja2Z3aWs1cGswY2p2MnFub3k3anZjaHRvIn0.1rstxyC5mH5Qfrpv92UAtg';
+    // var map = new mapboxgl.Map({
+    //     container: 'map',
+    //     style: 'mapbox://styles/anggadharma60/ckg06z7mt1x1x19of5d6mwu5i', // stylesheet location
+    //     center: [110.42142, -7.0556], // starting position [lng, lat]
+    //     zoom: 14 // starting zoom
+    // });
 
     // document.addEventListener('DOMContentLoaded', function() {
     //     var elems = document.querySelectorAll('select');
@@ -169,45 +177,45 @@
     // });
 
     // csv to geojson
-    var dat
-    $(document).ready(function() {
-        $.ajax({
-            type: "GET",
-            url: '<?php echo $url; ?>',
-            dataType: "text",
-            success: function(csvData) {
-                console.log(csvData);
-                makeGeoJSON(csvData);
 
-            }
-        });
-    });
+    // $(document).ready(function() {
+    //     $.ajax({
+    //         type: "GET",
+    //         url: '<?php echo $url; ?>',
+    //         dataType: "text",
+    //         success: function(csvData) {
+    //             console.log(csvData);
+    //             makeGeoJSON(csvData);
 
-    function makeGeoJSON(csvData) {
-        csv2geojson.csv2geojson(csvData, {
-            latfield: 'lat',
-            lonfield: 'lon',
-            delimiter: ','
-        }, function(err, data) {
-            map.on('load', function() {
-                map.addLayer({
-                    'id': 'point',
-                    'type': 'symbol',
-                    'source': {
-                        'type': 'geojson',
-                        'data': data
-                    },
-                    'layout': {
-                        "icon-image": 'marker-editor'
+    //         }
+    //     });
+    // });
 
-                    },
-                    'paint': {}
-                });
-                dataJSON = data
-                console.log(dataJSON);
-            });
-        });
-    }
+    // function makeGeoJSON(csvData) {
+    //     csv2geojson.csv2geojson(csvData, {
+    //         latfield: 'lat',
+    //         lonfield: 'lon',
+    //         delimiter: ','
+    //     }, function(err, data) {
+    //         map.on('load', function() {
+    //             map.addLayer({
+    //                 'id': 'point',
+    //                 'type': 'symbol',
+    //                 'source': {
+    //                     'type': 'geojson',
+    //                     'data': data
+    //                 },
+    //                 'layout': {
+    //                     "icon-image": 'marker-editor'
+
+    //                 },
+    //                 'paint': {}
+    //             });
+    //             dataJSON = data
+    //             console.log(dataJSON);
+    //         });
+    //     });
+    // }
 </script>
 
 </html>
