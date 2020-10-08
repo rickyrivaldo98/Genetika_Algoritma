@@ -7,9 +7,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/module/datatable/datatables.min.css' ?>">
     <link type="text/css" rel="stylesheet" href="<?php echo base_url() . 'assets/css/dashboard.css' ?>" />
-
+    <!--Mapbox API-->
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+    <script src=" https://npmcdn.com/csv2geojson@latest/csv2geojson.js"></script>
+
+    <!-- csv2geojson -->
+    <!-- <script src="<?php echo base_url() . 'assets/csv2geojson/test/csv2geojson.js' ?>"></script> -->
+    <!-- expect js -->
+    <!-- <script src="<?php echo base_url() . 'assets/expect.js/test/expect.js' ?>"></script> -->
 
 
     <!--Let browser know website is optimized for mobile-->
@@ -28,6 +38,9 @@
 
     <main>
         <div class="container">
+            <?php
+            print_r($csv . ' ' . $url);
+            ?>
             <h1>Algoritma Genetika</h1>
             <h6><?php echo $this->session->flashdata('error')  ?></h6>
             <div class="row">
@@ -133,21 +146,68 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoiYW5nZ2FkaGFybWE2MCIsImEiOiJja2Z3aWs1cGswY2p2MnFub3k3anZjaHRvIn0.1rstxyC5mH5Qfrpv92UAtg';
     var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+        style: 'mapbox://styles/anggadharma60/ckg06z7mt1x1x19of5d6mwu5i', // stylesheet location
         center: [110.42142, -7.0556], // starting position [lng, lat]
-        zoom: 15 // starting zoom
+        zoom: 14 // starting zoom
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems, options);
-    });
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     var elems = document.querySelectorAll('select');
+    //     var instances = M.FormSelect.init(elems, options);
+    // });
 
     // Or with jQuery
 
     $(document).ready(function() {
         $('select').formSelect();
     });
+
+    // For test console
+    // $(document).ready(function() {
+    //     var test = '<?php echo $url; ?>';
+    //     console.log(test);
+    // });
+
+    // csv to geojson
+    var dat
+    $(document).ready(function() {
+        $.ajax({
+            type: "GET",
+            url: '<?php echo $url; ?>',
+            dataType: "text",
+            success: function(csvData) {
+                console.log(csvData);
+                makeGeoJSON(csvData);
+
+            }
+        });
+    });
+
+    function makeGeoJSON(csvData) {
+        csv2geojson.csv2geojson(csvData, {
+            latfield: 'lat',
+            lonfield: 'lon',
+            delimiter: ','
+        }, function(err, data) {
+            map.on('load', function() {
+                map.addLayer({
+                    'id': 'point',
+                    'type': 'symbol',
+                    'source': {
+                        'type': 'geojson',
+                        'data': data
+                    },
+                    'layout': {
+                        "icon-image": 'marker-editor'
+
+                    },
+                    'paint': {}
+                });
+                dataJSON = data
+                console.log(dataJSON);
+            });
+        });
+    }
 </script>
 
 </html>

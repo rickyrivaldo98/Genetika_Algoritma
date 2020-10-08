@@ -13,7 +13,7 @@ class Proses extends CI_Controller
 {
 
   private $_tabel = "data";
-  private $_path = "assets/upload/data/";
+
   public function __construct()
   {
     parent::__construct();
@@ -29,7 +29,12 @@ class Proses extends CI_Controller
 
   public function geneAlgo($id)
   {
-    $data['csv'] = $this->model_input->get_input_by_id($id);
+    $_path = "assets/upload/data/";
+    $namaCSV = $this->model_input->get_input_by_id($id)->result_array();
+    $namaCSV = $namaCSV[0]['csv'];
+    $nama = explode('.', $namaCSV, 2);
+    $data['csv'] = $nama[0];
+    $data['url'] = base_url() . $_path . $namaCSV;
     $this->load->view('proses', $data);
   }
 }
