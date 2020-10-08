@@ -77,7 +77,7 @@ class Model_input extends CI_Model
     public function _uploadCSV()
     {
         $config['upload_path']          = './assets/upload/data/';
-        $config['allowed_types']        = 'json';
+        $config['allowed_types']        = 'geojson';
         $config['file_name']            = $this->id_data;
         $config['overwrite']            = TRUE;
         $config['max_size']             = 5000; // 1MB

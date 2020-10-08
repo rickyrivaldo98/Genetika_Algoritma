@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
@@ -43,6 +43,7 @@ return array(
 	'gtar'	=>	'application/x-gtar',
 	'gz'	=>	'application/x-gzip',
 	'gzip'  =>	'application/x-gzip',
+	'geojson'  =>	array('application/vnd.geo+json', 'application/json', 'text/json'),
 	'php'	=>	array('application/x-httpd-php', 'application/php', 'application/x-php', 'text/php', 'text/x-php', 'application/x-httpd-php-source'),
 	'php4'	=>	'application/x-httpd-php',
 	'php3'	=>	'application/x-httpd-php',
