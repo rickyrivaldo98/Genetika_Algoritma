@@ -65,13 +65,13 @@
                         <div class="col s6">
                             <form class="col s12" action="" method="post">
                                 <div class="row test">
-                                    <h6 class="judul"> Form For mutation rate, crossover rate, population size, max generation</h6>
+                                    <!-- <h6 class="judul"> Form For mutation rate, crossover rate, population size, max generation</h6> -->
                                     <br>
                                     <input type="text" id="name" name="name" value="<?php echo $csv; ?>" hidden>
                                     <input type="text" id="url" name="url" value="<?php echo $url; ?>" hidden>
                                     <input type="text" name="id" hidden>
 
-                                    <div class="input-field">
+                                    <!-- <div class="input-field">
                                         <select id="mr" name="mr">
                                             <option value="" disabled selected>Silahkan isi Mutation Rate disini</option>
                                             <option value="0.1">0.1</option>
@@ -85,9 +85,9 @@
                                             <option value="9">0.9</option>
                                         </select>
                                         <label for="mr">Mutation Rate</label>
-                                    </div>
+                                    </div> -->
 
-                                    <div class="input-field">
+                                    <!-- <div class="input-field">
                                         <select id="cr" name="cr">
                                             <option value="" disabled selected>Silahkan isi Crossover Rate disini</option>
                                             <option value="1">0.1</option>
@@ -101,40 +101,40 @@
                                             <option value="9">0.9</option>
                                         </select>
                                         <label for="cr">Crossover Rate</label>
-                                    </div>
+                                    </div> -->
 
-                                    <div class="input-field">
+                                    <!-- <div class="input-field">
                                         <select id="ps" name="ps">
                                             <option value="" disabled selected>Silahkan isi Population Size disini</option>
                                             <option value="1">500</option>
                                             <option value="2">1000</option>
-                                            <option value="3" selected>5</option> <!-- 1500  -->
+                                            <option value="3" selected>5</option>
                                             <option value="4">2500</option>
                                             <option value="5">3000</option>
                                         </select>
                                         <label for="ps">Population Size</label>
-                                    </div>
+                                    </div> -->
 
-                                    <div class="input-field">
+                                    <!-- <div class="input-field">
                                         <select id="mg" name="mg">
                                             <option value="" disabled selected>Silahkan isi Max Generation disini</option>
                                             <option value="1">250</option>
-                                            <option value="2" selected>3</option> <!-- 500  -->
+                                            <option value="2" selected>3</option>
                                             <option value="3">1000</option>
                                         </select>
                                         <label for="mg">Max Generation</label>
-                                    </div>
+                                    </div> -->
 
                                 </div>
-                                <button type="button" id="proses" class="waves-effect blue lighten-2 waves-light btn right"><i class="material-icons left">check</i>Submit</button>
+                                <!-- <button type="button" id="proses" class="waves-effect blue lighten-2 waves-light btn right"><i class="material-icons left">check</i>Submit</button> -->
                             </form>
                         </div>
                         <!-- Log GA -->
-                        <div class="col s6">
+                        <!-- <div class="col s6">
                             <h6>Log GA</h6>
                             <br><br>
                             <textarea name="log" id="log" style="resize:none;height: 300px;"></textarea>
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>

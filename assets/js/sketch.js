@@ -13,11 +13,11 @@
 
 var numCities;
 var generation = 0;
-var maxGeneration = 500;
-var numPop = 1500;
-var crossoverRate = 80;
-var mutationRate = 20;
-var generationGap = 10.0;
+var maxGeneration = 1500;
+var numPop = 3000;
+var crossoverRate = 75;
+var mutationRate = 25;
+var generationGap = 20.0;
 var sumHaversine = 0.0;
 var converge = 0;
 var randomStrategy;
@@ -26,9 +26,9 @@ var lonList = [],
 	latList = [],
 	nameList = [];
 var pitch = 0;
-var clat = -7.0556;
+var clat = -5.0556;
 var clon = 110.42142;
-var zoom = 14;
+var zoom = 5;
 
 var path = [],
 	pathTrue = [];
@@ -37,7 +37,7 @@ var record = 0.0;
 
 var mapImage, map;
 var imageWidth = 512 * 2,
-	imageHeight = 512;
+	imageHeight = 512 * 1.25;
 //var imageWidth = 512 * 2.5, imageHeight = 512 * 1.25;
 var cityData = [];
 
@@ -208,7 +208,7 @@ function setup() {
 	var cnv = createCanvas(imageWidth, imageHeight);
 	var x = (windowWidth - width) / 2;
 	var y = (windowHeight - height) / 2 - 20;
-	cnv.position(x + 150, y + 200);
+	cnv.position(x + 150, y + 300);
 }
 
 function draw() {
