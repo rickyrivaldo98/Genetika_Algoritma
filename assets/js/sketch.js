@@ -13,11 +13,11 @@
 
 var numCities;
 var generation = 0;
-var maxGeneration = 350;
-var numPop = 3000;
-var crossoverRate = 85.0;
-var mutationRate = 25.0;
-var generationGap = 25.0;
+var maxGeneration = 500;
+var numPop = 1500;
+var crossoverRate = 80;
+var mutationRate = 20;
+var generationGap = 10.0;
 var sumHaversine = 0.0;
 var converge = 0;
 var randomStrategy;
@@ -40,6 +40,98 @@ var imageWidth = 512 * 2,
 	imageHeight = 512;
 //var imageWidth = 512 * 2.5, imageHeight = 512 * 1.25;
 var cityData = [];
+
+//Proses GA dengan button (Belum selesai)
+$(document).ready(function () {
+	$("#proses").click(function () {
+		$("#log").val("");
+		var textContent = "~Proses Algoritma Gentika~\n";
+		$("#log").val(textContent);
+		temp = $("#log").val();
+
+		textContent = temp + "\nCrossover Rate\t: ";
+		crossoverRate = $("#cr option:selected").text();
+		$("#log").val(textContent + crossoverRate);
+		temp = $("#log").val();
+
+		textContent = temp + "\nMutation Rate\t\t: ";
+		mutationRate = $("#mr option:selected").text();
+		$("#log").val(textContent + mutationRate);
+		temp = $("#log").val();
+
+		textContent = temp + "\nPopulation Size\t: ";
+		numPop = $("#ps option:selected").text();
+		$("#log").val(textContent + numPop);
+		temp = $("#log").val();
+
+		textContent = temp + "\nMax Generation\t: ";
+		maxGeneration = $("#mg option:selected").text();
+		$("#log").val(textContent + maxGeneration);
+		temp = $("#log").val();
+
+		for (var i = 0, l = latList.length; i < l; ++i) {
+			var cx = webMercatorX(clon);
+			var cy = webMercatorY(clat);
+			var x = webMercatorX(lonList[i]) - cx;
+			var y = webMercatorY(latList[i]) - cy;
+			path.push(new City(x, y, nameList[i]));
+			pathTrue.push(new City(lonList[i], latList[i], nameList[i]));
+		}
+
+		populationList = [];
+		for (var i = 0; i < numPop; ++i) {
+			populationList.push(new Route(path, true));
+		}
+
+		randomStrategy = generate();
+		// randomStrategy = new RandomStrategy(
+		// 	populationList,
+		// 	numPop,
+		// 	crossoverRate,
+		// 	mutationRate,
+		// 	generationGap,
+		// 	numCities
+		// );
+
+		textContent = temp + "\n\n~Initial Population~ \n";
+		$("#log").val(textContent);
+		temp = $("#log").val();
+		textContent = printInitialPopulation(populationList);
+		$("#log").val(temp + textContent);
+		console.log(randomStrategy);
+
+		randomStrategy.runGA();
+		// generation++;
+		console.log(randomStrategy);
+	});
+});
+
+function generate() {
+	randomStrategy = new RandomStrategy(
+		populationList,
+		numPop,
+		crossoverRate,
+		mutationRate,
+		generationGap,
+		numCities
+	);
+	return randomStrategy;
+}
+function printInitialPopulation(populationList) {
+	var print = "";
+	for (var i = 0; i < populationList.length; ++i) {
+		var num = "\nRoute-" + (i + 1) + ":\n";
+		// $("#log").val(temp);
+		var route = "";
+		for (var j = 0; j < populationList[i].chromosome.length; ++j) {
+			var name = populationList[i].chromosome[j].name;
+			route += name + ", ";
+			// $("#log").val(route);
+		}
+		print += num + route;
+	}
+	return print;
+}
 
 function preload() {
 	//nama file
@@ -116,7 +208,7 @@ function setup() {
 	var cnv = createCanvas(imageWidth, imageHeight);
 	var x = (windowWidth - width) / 2;
 	var y = (windowHeight - height) / 2 - 20;
-	cnv.position(x, y);
+	cnv.position(x + 150, y + 200);
 }
 
 function draw() {
@@ -204,7 +296,7 @@ function draw() {
 }
 
 function parse(data, list1, list2, list3) {
-	console.log(data.length);
+	// console.log(data.length);
 	// console.log(data[0].geometry.coordinates[0]);
 	// console.log(data[0].geometry.coordinates[1]);
 	// console.log(data[0].properties.name);
@@ -217,9 +309,9 @@ function parse(data, list1, list2, list3) {
 		list2.push(lat);
 		list3.push(name);
 	}
-	console.log(list1);
-	console.log(list2);
-	console.log(list3);
+	// console.log(list1);
+	// console.log(list2);
+	// console.log(list3);
 }
 
 function init() {
@@ -231,12 +323,10 @@ function init() {
 		path.push(new City(x, y, nameList[i]));
 		pathTrue.push(new City(lonList[i], latList[i], nameList[i]));
 	}
-
 	populationList = [];
 	for (var i = 0; i < numPop; ++i) {
 		populationList.push(new Route(path, true));
 	}
-
 	randomStrategy = new RandomStrategy(
 		populationList,
 		numPop,
